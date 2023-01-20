@@ -610,7 +610,7 @@ wait
 pip3 install uwsgi
 wait
 # Install the project requirements
-pip3 install -r requirements.txt
+pip3 install -r requirements.txt  --use-pep517
 wait
 # Install the decoupler for .env file
 pip3 install python-decouple
