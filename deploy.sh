@@ -463,12 +463,12 @@ sleep 2
 if [ -f "$HD/saleor/saleor/settings.py" ]; then
         sudo rm $HD/saleor/saleor/settings.py
 fi
-sudo cp $HD/Deploy_Saleor/resources/saleor/$VERSION-settings.py $HD/saleor/saleor/settings.py
+sudo cp $HD/Deploy_Saleor/resources/saleor/3.0.0-settings.py $HD/saleor/saleor/settings.py
 # Replace the populatedb.py file with the production version
 if [ -f "$HD/saleor/saleor/core/management/commands/populatedb.py" ]; then
         sudo rm $HD/saleor/saleor/core/management/commands/populatedb.py
 fi
-sudo cp $HD/Deploy_Saleor/resources/saleor/$VERSION-populatedb.py $HD/saleor/saleor/core/management/commands/populatedb.py
+sudo cp $HD/Deploy_Saleor/resources/saleor/3.0.0-populatedb.py $HD/saleor/saleor/core/management/commands/populatedb.py
 # Replace the test_core.py file with the production version
 #if [ -f "$HD/saleor/saleor/core/tests/test_core.py" ]; then
 #        sudo rm $HD/saleor/saleor/core/tests/test_core.py
@@ -482,7 +482,7 @@ if [ -f "/etc/systemd/system/saleor.service" ]; then
 fi
 ###### This following section is for future use and will be modified to allow an alternative repo clone ######
 # Was the -v (version) option used or Mirumee repo specified?
-if [ "vOPT" = "true" ] || [ "$REPO" = "mirumee" ]; then
+if [ "vOPT" = "true" ] ; then
         # Create the saleor service file
         sudo sed "s/{un}/$UN/
                   s|{hd}|$HD|g" $HD/Deploy_Saleor/resources/saleor/template.service > /etc/systemd/system/saleor.service
