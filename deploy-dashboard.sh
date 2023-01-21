@@ -46,7 +46,7 @@ cd $HD
 if [ -d "$HD/saleor-dashboard" ]; then
         sudo rm -R $HD/saleor-dashboard
 fi
-sudo -u $UN git clone https://github.com/mirumee/saleor-dashboard.git
+ git clone https://github.com/mirumee/saleor-dashboard.git
 wait
 # Build the API URL
 API_URL="https://$HOST/$APIURI/"
@@ -71,10 +71,7 @@ fi
 #########################################################################################
 # Make sure we're in the project root directory
 cd saleor-dashboard
-# Was the -v (version) option used?
-if [ "vOPT" = "true" ] || [ "$VERSION" != "" ]; then
-        sudo -u $UN git checkout $VERSION
-fi
+
 # Update npm
 npm install -g npm@latest
 wait
