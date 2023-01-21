@@ -371,7 +371,7 @@ sudo ufw allow $API_PORT
 #########################################################################################
 
 
-
+mkdir $HD/virtual_virtual_env/saleor
 #########################################################################################
 # Create virtual environment directory
 #if [ ! -d "$HD/env" ]; then
@@ -379,9 +379,9 @@ sudo ufw allow $API_PORT
   #      wait
 #fi
 # Does an old virtual environment for Saleor exist?
-#if [ ! -d "$HD/env/saleor" ]; then
+#if [ ! -d "$HD/virtual_env/saleor" ]; then
         # Create a new virtual environment for Saleor
- #       sudo -u $UN python3 -m venv $HD/env/saleor
+ #       sudo -u $UN python3 -m venv $HD/virtual_env/saleor
   #      wait
 #fi
 #########################################################################################
@@ -560,18 +560,18 @@ sudo cp $HD/Deploy_Saleor/resources/saleor/uwsgi_params $HD/saleor/uwsgi_params
 # Install Saleor for production
 #########################################################################################
 # Does an old virtual environment vassals for Saleor exist?
-if [ -d "$HD/env/saleor/vassals" ]; then
-        sudo rm -R $HD/env/saleor/vassals
+if [ -d "$HD/virtual_env/saleor/vassals" ]; then
+        sudo rm -R $HD/virtual_env/saleor/vassals
         wait
 fi
 # Create vassals directory in virtual environment
-sudo -u $UN mkdir $HD/env/saleor/vassals
+mkdir $HD/virtual_env/saleor/vassals
 wait
 # Simlink to the prod.ini
-sudo ln -s $HD/saleor/saleor/wsgi/prod.ini $HD/env/saleor/vassals
+sudo ln -s $HD/saleor/saleor/wsgi/prod.ini $HD/virtual_env/saleor/vassals
 wait
 # Activate the virtual environment
-source $HD/env/saleor/bin/activate
+source $HD/virtual_env/saleor/bin/activate
 # Update npm
 npm install npm@latest
 wait
