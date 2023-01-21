@@ -374,16 +374,16 @@ sudo ufw allow $API_PORT
 
 #########################################################################################
 # Create virtual environment directory
-if [ ! -d "$HD/env" ]; then
-        sudo -u $UN mkdir $HD/env
-        wait
-fi
+#if [ ! -d "$HD/env" ]; then
+ #       sudo -u $UN mkdir $HD/env
+  #      wait
+#fi
 # Does an old virtual environment for Saleor exist?
-if [ ! -d "$HD/env/saleor" ]; then
+#if [ ! -d "$HD/env/saleor" ]; then
         # Create a new virtual environment for Saleor
-        sudo -u $UN python3 -m venv $HD/env/saleor
-        wait
-fi
+ #       sudo -u $UN python3 -m venv $HD/env/saleor
+  #      wait
+#fi
 #########################################################################################
 
 
@@ -403,34 +403,14 @@ fi
 echo "Cloning Saleor from github..."
 echo ""
 # Check if the -v (version) option was used
-if [ "$vOPT" = "true" ]; then
-        # Get the Mirumee repo
-        sudo -u $UN git clone https://github.com/dhanendras/saleor.git
-else
-        # Was a repo specified?
-        if [ "$REPO" = "mirumee" ]; then
-                # Get the Mirumee repo
-                sudo -u $UN git clone https://github.com/dhanendras/saleor.git
-        else
-                # Get the Mirumee repo
-                sudo -u $UN git clone https://github.com/dhanendras/saleor.git
 
-                ###### For possible later use ######
-                # Get the forked repo from thewhiterabbit
-                #git https://github.com/dhanendras/saleor.git
-                ###### For possible later use ######
-        fi
-fi
+         git clone https://github.com/dhanendras/saleor.git
+
 wait
 # Make sure we're in the project root directory for Saleor
 cd $HD/saleor
 wait
-# Was the -v (version) option used?
-if [ "vOPT" = "true" ] || [ "$VERSION" != "" ]; then
-        # Checkout the specified version
-        sudo -u $UN git checkout $VERSION
-        wait
-fi
+
 #sudo -u $UN cp $HD/django/saleor/asgi.py $HD/saleor/saleor/
 #sudo -u $UN cp $HD/django/saleor/wsgi.py $HD/saleor/saleor/
 #sudo -u $UN cp $HD/saleor/saleor/wsgi/__init__.py $HD/saleor/saleor/wsgi.py
