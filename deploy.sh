@@ -371,7 +371,7 @@ sudo ufw allow $API_PORT
 #########################################################################################
 
 
-mkdir $HD/virtual_virtual_env/saleor
+mkdir $HD/virtual_env/saleor
 #########################################################################################
 # Create virtual environment directory
 #if [ ! -d "$HD/env" ]; then
