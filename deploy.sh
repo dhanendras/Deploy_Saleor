@@ -600,7 +600,7 @@ wait
 # Establish the database
 python3 manage.py migrate
 wait
-python3 manage.py populatedb --createsuperuser
+#python3 manage.py populatedb --createsuperuser
 wait
 # Collect the static elemants
 python3 manage.py collectstatic
@@ -609,7 +609,7 @@ wait
 npm run build-schema
 wait
 # Build the emails
-npm run build-emails
+#npm run build-emails
 wait
 # Exit the virtual environment here? _#_
 deactivate
