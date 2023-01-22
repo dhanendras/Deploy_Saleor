@@ -73,7 +73,7 @@ fi
 cd saleor-dashboard
 
 # Update npm
-npm install -g npm@latest
+#npm install -g npm@latest
 wait
 # Install dependancies
 sudo -u $UN npm i
