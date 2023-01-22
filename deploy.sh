@@ -17,7 +17,26 @@ fi
 cd $HD
 #########################################################################################
 
+mkdir -p env/saleor
+echo 'alias python=python3' >> ~/.bashrc 
+source ~/.bashrc
+sudo add-apt-repository -y ppa:deadsnakes/ppa
+sudo apt update
+sudo apt install -y python3.9
+sudo  apt-get install -y python3.9-dev python3.9-venv
+/usr/bin/python3.9 -m venv ./env/saleor/venv_with_python3.9
+source ./env/saleor/venv_with_python3.9/bin/activate
+pip install wheel
+sudo apt install libpq-dev -y
+sudo apt update
+sudo apt install curl -y
+curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash 
+source ~/.bashrc   
+source ./env/saleor/venv_with_python3.9/bin/activate
 
+nvm install  16
+sudo apt install -y nginx
+wait
 
 #########################################################################################
 # Get the operating system
