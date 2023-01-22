@@ -440,14 +440,7 @@ sleep 2
 # the production files
 #########################################################################################
 # Replace the settings.py with the production version
-if [ -f "$HD/saleor/saleor/settings.py" ]; then
-        sudo rm $HD/saleor/saleor/settings.py
-fi
-sudo cp $HD/Deploy_Saleor/resources/saleor/3.0.0-settings.py $HD/saleor/saleor/settings.py
-# Replace the populatedb.py file with the production version
-if [ -f "$HD/saleor/saleor/core/management/commands/populatedb.py" ]; then
-        sudo rm $HD/saleor/saleor/core/management/commands/populatedb.py
-fi
+
 sudo cp $HD/Deploy_Saleor/resources/saleor/3.0.0-populatedb.py $HD/saleor/saleor/core/management/commands/populatedb.py
 # Replace the test_core.py file with the production version
 #if [ -f "$HD/saleor/saleor/core/tests/test_core.py" ]; then
@@ -571,7 +564,7 @@ wait
 sudo ln -s $HD/saleor/saleor/wsgi/prod.ini $HD/env/saleor/vassals
 wait
 # Activate the virtual environment
-#source $HD/env/saleor/bin/activate
+source $HD/env/saleor/bin/activate
 # Update npm
 #npm install npm@latest
 wait
