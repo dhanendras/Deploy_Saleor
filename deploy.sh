@@ -571,7 +571,7 @@ wait
 sudo ln -s $HD/saleor/saleor/wsgi/prod.ini $HD/virtual_env/saleor/vassals
 wait
 # Activate the virtual environment
-source $HD/virtual_env/saleor/bin/activate
+#source $HD/virtual_env/saleor/bin/activate
 # Update npm
 npm install npm@latest
 wait
