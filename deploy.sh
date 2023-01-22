@@ -573,13 +573,13 @@ wait
 # Activate the virtual environment
 #source $HD/env/saleor/bin/activate
 # Update npm
-npm install npm@latest
+#npm install npm@latest
 wait
 # Make sure pip is upgraded
 python3 -m pip install --upgrade pip
 wait
 # Install Django
-pip3 install Django
+#pip3 install Django
 wait
 # Create a Temporary directory to generate some files we need
 #sudo -u $UN mkdir $HD/django
