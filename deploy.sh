@@ -225,12 +225,13 @@ sudo echo $(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 2048| head -n 1) > /
 # Generate an 8 byte obfuscation string for the database name & username 
 OBFSTR=$(cat /dev/urandom | tr -dc 'a-z0-9' | fold -w 8| head -n 1)
 # Append the database name for Saleor with the obfuscation string
-PGSQLDBNAME="saleor_db"
+PGSQLDBNAME="saleor"
 # Append the database username for Saleor with the obfuscation string
-PGSQLUSER="saleor_dbu"
+PGSQLUSER="saleor"
 # Generate a 128 byte password for the Saleor database user
 # TODO: Add special characters once we know which ones won't crash the python script
-PGSQLUSERPASS=$(cat /dev/urandom | tr -dc 'A-Za-z0-9' | fold -w 128 | head -n 1)
+PGSQLUSERPASS="saleor"
+#$(cat /dev/urandom | tr -dc 'A-Za-z0-9' | fold -w 128 | head -n 1)
 #########################################################################################
 
 
